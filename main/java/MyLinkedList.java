@@ -31,6 +31,14 @@ public class MyLinkedList {
             this.tail = myNode;
         }
     }
+    public void insert(INode myNode,INode newNode){    //(firstNode,SecondNode)
+        INode tempNode = myNode.getNext();
+        myNode.setNext(newNode);                    //creating and interchanging
+        newNode.setNext(tempNode);
+
+
+    }
+
     public  void show() {
     	INode node=head;
     	while(node.getNext()!=null) {
