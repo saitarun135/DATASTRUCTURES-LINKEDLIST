@@ -73,6 +73,26 @@ public class MyLinkedList {
         }
         return false;
     }
+    public Integer size(){
+        Integer size = 0;
+        INode tempNode = this.head;
+        while(tempNode != null){
+            size++;
+            tempNode = tempNode.getNext();
+        }
+        return size;
+    }
+    public void searchAndDelete(INode searchNode) {
+        if (searchElement(searchNode)){
+            System.out.println("Linked List size before deleting element : "+size());
+            INode nextNode = searchNode.getNext();
+            INode tempNode = nextNode.getNext();
+            if (nextNode != tail){
+                searchNode.setNext(tempNode);
+                System.out.println("Linked List size after deleting element : "+size());
+            }
+        }
+    }
 
 
     public  void show() {
