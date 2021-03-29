@@ -105,5 +105,25 @@ public class MyLinkedListTest {
         boolean result = myLinkedList.searchElement(myThirdNode);
         Assertions.assertTrue(result);
     }
+    @Test
+    public void givenElements_SearchFirstNodeAndInsertSecondNode_ShouldPassTest() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode<Integer> myFourthNode = new MyNode<>(40);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.insert(myFirstNode, mySecondNode);
+        System.out.println("Before search and inserting operation:\t");
+        myLinkedList.show();
+
+        boolean result = myLinkedList.searchAndInsertElement(mySecondNode, myFourthNode);
+
+        System.out.println("\n After Search and inserting operation:");
+        myLinkedList.show();
+        Assertions.assertTrue(result);
+    }
 }
+
 

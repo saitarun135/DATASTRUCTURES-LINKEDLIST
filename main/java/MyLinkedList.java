@@ -61,6 +61,18 @@ public class MyLinkedList {
         }
         return false;
     }
+    //search the element and inserting .
+    public boolean searchAndInsertElement(INode searchNode, INode insertNode){
+        INode tempNode = this.head;
+        while (tempNode != null){
+            if (tempNode.getKey().equals(searchNode.getKey())){
+                insert(tempNode, insertNode);                  //calling method for inserting
+                return true;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return false;
+    }
 
 
     public  void show() {
