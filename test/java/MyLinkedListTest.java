@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.Test;
 
@@ -143,6 +144,28 @@ public class MyLinkedListTest {
         Integer result = myLinkedList.size();
         Assertions.assertEquals(3, result);
     }
+
+    @Test
+    public void givenElements_SortAndInsert_ShouldReturnAscendingOrder(){
+        MyNode<Integer> myFirstNode=new MyNode<>(56);
+        MyNode<Integer> mySecondNode=new MyNode<>(30);
+        MyNode<Integer> myThirdNode=new MyNode<>(70);
+        MyNode<Integer> myFourthNode=new MyNode<>(40);
+        MyLinkedList myLinkedList=new MyLinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.insert(myFirstNode, mySecondNode);
+        myLinkedList.insert(mySecondNode, myFourthNode);
+        System.out.println("Before sorting the linkedList");
+        myLinkedList.show();
+        myLinkedList.sortAndInsert(myFirstNode);
+        myLinkedList.sortAndInsert(mySecondNode);
+        myLinkedList.sortAndInsert(myThirdNode);
+        myLinkedList.sortAndInsert(myFourthNode);
+        System.out.println("After sorting the elements are stored in ascending order");
+        myLinkedList.show();
+    }
+
 }
 
 

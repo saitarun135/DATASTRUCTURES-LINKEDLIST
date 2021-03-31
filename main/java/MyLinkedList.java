@@ -1,3 +1,6 @@
+// https://www.geeksforgeeks.org/how-to-sort-a-linkedlist-in-java/     -->InsertionOrder
+import java.util.Comparator;
+
 public class MyLinkedList {
 
     public INode head;
@@ -42,6 +45,7 @@ public class MyLinkedList {
         this.head=this.head.getNext();
         return tempNode;
     }
+
     public INode popLast(){
         INode tempNode = head;
         while (tempNode.getNext()!=((tail))){
@@ -51,6 +55,7 @@ public class MyLinkedList {
         tempNode = tempNode.getNext();
        return tempNode ;
     }
+
     public boolean searchElement(INode searchNode){
         INode tempNode = this.head;
         while (tempNode != null){
@@ -93,6 +98,50 @@ public class MyLinkedList {
             }
         }
     }
+    /*
+    // function to insert a new_node in a list. Note that
+    // this function expects a pointer to head_ref as this
+    // can modify the head of the input linked list
+    // (similar to push())
+    void sortedInsert(node newnode)
+    {
+        // Special case for the head end
+        if (sorted == null || sorted.val >= newnode.val)
+        {
+            newnode.next = sorted;
+            sorted = newnode;
+        }
+        else
+        {
+            node current = sorted;
+
+            // Locate the node before the point of insertion
+            while (current.next != null && current.next.val < newnode.val)
+            {
+                current = current.next;
+            }
+
+            newnode.next = current.next;
+            current.next = newnode;
+        }
+    }
+
+    */
+    public void sortAndInsert(INode myNode){
+        INode tempnode = head;
+        INode prevNode = null;
+        while (tempnode != null && (int) myNode.getKey() >= (int) tempnode.getKey()) {
+            prevNode = tempnode;
+            tempnode = tempnode.getNext();
+        }
+        if(prevNode == null)
+            this.head = myNode;
+        else
+            prevNode.setNext(myNode);
+        myNode.setNext(tempnode);
+    }
+
+
 
 
     public  void show() {
